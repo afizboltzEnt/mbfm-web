@@ -90,7 +90,7 @@ export default function Home() {
               {
                 title: "Pendaftaran",
                 desc: "Daftar sebagai ahli",
-                href: "/pendaftaran",
+                href: "https://v1.mbfm.org.my/borang/keahlian",
                 icon: "📝",
               },
               {

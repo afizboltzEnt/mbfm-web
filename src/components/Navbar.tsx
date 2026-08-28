@@ -34,7 +34,7 @@ const navItems = [
       { label: "Wakil Rakyat", href: "/mantan-kepimpinan/wakil-rakyat" },
     ],
   },
-  { label: "Pendaftaran", href: "/pendaftaran" },
+  { label: "Pendaftaran", href: "https://v1.mbfm.org.my/borang/keahlian", external: true },
   {
     label: "Kejayaan",
     children: [
@@ -142,12 +142,18 @@ export default function Navbar() {
                       )}
                     </>
                   ) : (
-                    <Link
+                    <a
                       href={item.href}
+                      {...(item.external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
                       className="px-3 py-2 text-sm font-medium text-dark transition-colors hover:text-primary"
                     >
                       {item.label}
-                    </Link>
+                      {item.external && (
+                        <svg className="ml-1 inline-block h-3 w-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                        </svg>
+                      )}
+                    </a>
                   )}
                 </div>
               ))}
@@ -271,13 +277,19 @@ export default function Navbar() {
                   )}
                 </>
               ) : (
-                <Link
+                <a
                   href={item.href}
+                  {...(item.external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
                   onClick={() => setIsOpen(false)}
                   className="block py-3 text-sm font-medium text-dark transition-colors hover:text-primary"
                 >
                   {item.label}
-                </Link>
+                  {item.external && (
+                    <svg className="ml-1 inline-block h-3 w-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                    </svg>
+                  )}
+                </a>
               )}
             </div>
           ))}
